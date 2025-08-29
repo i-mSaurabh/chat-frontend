@@ -1,5 +1,5 @@
 // Backend API base URL
-window.API_BASE = "http://localhost:5000";
+window.API_BASE = "https://chat-backend-fply.onrender.com";
 
 const chatBox = document.getElementById("chat");
 const chatForm = document.getElementById("chatForm");
