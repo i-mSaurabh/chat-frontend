@@ -1,10 +1,12 @@
 // Backend API base URL
-window.API_BASE = "https://chat-backend-fply.onrender.com";
+// Make sure this is already set in HTML before loading app.js
+// window.API_BASE = "https://chat-backend-fply.onrender.com";
 
 const chatBox = document.getElementById("chat");
 const chatForm = document.getElementById("chatForm");
 const messageInput = document.getElementById("messageInput");
 
+// Function to add messages to chat
 function addMessage(text, sender) {
   const div = document.createElement("div");
   div.className = `message ${sender}`;
@@ -13,17 +15,9 @@ function addMessage(text, sender) {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-chatForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const message = messageInput.value.trim();
-  if (!message) return;
-
-  // show user message
-  addMessage(message, "user");
-  messageInput.value = "";
-
+// Function to send user message to backend and get reply
+async function sendMessage(message) {
   try {
-    // send message to backend API
     const res = await fetch(`${window.API_BASE}/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -35,4 +29,23 @@ chatForm.addEventListener("submit", async (e) => {
   } catch (err) {
     addMessage("⚠️ Error: cannot reach chatbot API", "bot");
   }
+}
+
+// Event listener for form submission
+chatForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const message = messageInput.value.trim();
+  if (!message) return;
+
+  // Show user message
+  addMessage(message, "user");
+  messageInput.value = "";
+
+  // Send message to backend
+  await sendMessage(message);
+});
+
+// Show welcome message from bot when page loads
+window.addEventListener("DOMContentLoaded", () => {
+  addMessage("Hello! I’m your PWC AI Agent 👋 How can I help you today?", "bot");
 });
