@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- This is the browser tab title -->
-  <title>🙃 Ask me anything dear</title>
-  <link rel="stylesheet" href="style.css">
+  <title>PWC AI AGENT | STUDENT CORNER</title>
+  <link rel="stylesheet" href="style2.css">
 </head>
 <body>
   <div class="chat-container">
     <header class="chat-header">
-      <!-- This is the visible header inside the chat window -->
-      <h1>🤔 Smarter Than Your Average Toaster</h1>
+      <img src="logo.jpg" alt="PWC Logo" class="logo">
+      <h1>PWC AI AGENT | STUDENT CORNER</h1>
     </header>
+
     <main id="chat" class="chat-box"></main>
+
     <form id="chatForm" class="chat-input">
       <input id="messageInput" type="text" placeholder="Type your message..." autocomplete="off" />
       <button type="submit">Send</button>
     </form>
   </div>
 
+  <!-- Configure API endpoint BEFORE loading app.js -->
   <script>
-    // configure API endpoint
     window.API_BASE = "https://chat-backend-fply.onrender.com";
   </script>
   <script src="app.js"></script>
