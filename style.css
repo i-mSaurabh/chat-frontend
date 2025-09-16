@@ -41,40 +41,59 @@ body {
     transition: background 0.3s ease, backdrop-filter 0.3s ease;
   }
   
-  /* On hover – almost white effect */
-  .chat-container:hover {
-    background: rgba(255, 255, 255, 0.85);  /* almost white */
-    backdrop-filter: blur(6px);             /* blur background slightly */
-  }
+
+/* On hover – almost white effect */
+.chat-container:hover {
+  background: rgba(255, 255, 255, 0.85);  /* almost white */
+  backdrop-filter: blur(6px);             /* blur background slightly */
+}
+
+
+
   
   
   
   
   
-  /* Header */
-  .chat-header {
-    background: linear-gradient(90deg, #002b5b, #00bfa6);
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  }
+/* Header */
+/* Chat header */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px 20px;
   
-  .chat-header .logo {
-    width: 42px;
-    height: 42px;
-    margin-right: 12px;
-    border-radius: 50%;
-    background: white;
-    padding: 5px;
-  }
+  background: linear-gradient(90deg, #002b5b, #004080); /* classy blue gradient */
+  color: white;
+  border-bottom: 2px solid #001f3f;
   
-  .chat-header h1 {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0;
-  }
+  position: relative;
+  top: -25px;   /* shifts header box slightly upward */
+  border-radius: 12px 12px 0 0;  /* rounded top corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.chat-header .logo {
+  width: 90px;       /* keep it large */
+  height: auto;
+  margin-right: 18px;
+  object-fit: contain;
+}
+
+.chat-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+
+.chat-header h2 {
+  font-size: 13px;
+  font-weight: 400;
+  margin: 4px 0 0 0;
+  color: #d0d0d0; /* softer gray for subtitle */
+}
+
   
   /* Chat messages */
   .chat-box {
